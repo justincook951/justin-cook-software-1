@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="500" prefWidth="1600" stylesheets="@allStyles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwareifinal.controller_view.MainPageController">
+    <top>
+      <Label id="TitleLabel" text="Inventory Management System" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+    <GridPane alignment="CENTER" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25" />
+    </padding>
+       <children>
+       
+       <HBox id="CenterBox" alignment="center_right" spacing="10">
+          <children>
+            <VBox styleClass="vbox-main">
+               <children>
+                   <HBox spacing="10" styleClass="standard-padding">
+                     <padding>
+                       <Insets left="25" />
+                     </padding>
+                      <children>           
+                          <Label>Parts</Label>
+                          <Region prefWidth="50" HBox.hgrow="ALWAYS" />
+                          <Button styleClass="button-boi" onAction="#searchParts" text="Search">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </HBox.margin></Button>
+                          <TextField fx:id="SearchParts">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="20.0" />
+                                 </padding></TextField>
+                      </children>
+                   </HBox>
+   
+                 <TableView fx:id="partsTV" prefWidth="720" BorderPane.alignment="CENTER">
+                   <columns>
+                     <TableColumn fx:id="partIDCol" prefWidth="180" text="Part ID" />
+                     <TableColumn fx:id="partNameCol" prefWidth="180" text="Part Name" />
+                     <TableColumn fx:id="invLevelPartCol" prefWidth="180" text="Inventory Level" />
+                     <TableColumn fx:id="pricePartCol" prefWidth="180" text="Price / Unit" />
+                   </columns>
+                 </TableView>
+                 <BorderPane> 
+                     <right>
+                         <HBox prefHeight="25.0" spacing="20.0">
+                            <children>
+                                <Button id="addPart" onAction="#changeScreen" styleClass="button-boi" text="Add" />
+                                <Button id="modifyPart" onAction="#changeScreen" styleClass="button-boi" text="Modify" />
+                                <Button id="deletePart" onAction="#deletePart" styleClass="button-boi" text="Delete" />
+                            </children>
+                                 <BorderPane.margin>
+                                    <Insets bottom="5.0" left="15.0" top="5.0" />
+                                 </BorderPane.margin>
+                         </HBox>
+                     </right>
+                 </BorderPane>
+               </children>
+            </VBox>
+            <VBox styleClass="vbox-main">
+               <children>
+                 <HBox spacing="10.0" styleClass="standard-padding">
+                    <children>           
+                          <Label>Products</Label>
+                          <Region prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                          <Button styleClass="button-boi" onAction="#searchProducts" text="Search">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </HBox.margin></Button>
+                          <TextField fx:id="SearchProducts">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="20.0" />
+                                 </padding></TextField>
+                    </children>
+                           <padding>
+                              <Insets left="25.0" />
+                           </padding>
+                   </HBox>
+                 <TableView fx:id="productsTV" prefWidth="720" BorderPane.alignment="CENTER">
+                   <columns>
+                     <TableColumn fx:id="productIDCol" prefWidth="180" text="Product ID" />
+                     <TableColumn fx:id="productNameCol" prefWidth="180" text="Product Name" />
+                     <TableColumn fx:id="invLevelProductCol" prefWidth="180" text="Inventory Level" />
+                     <TableColumn fx:id="priceProductCol" prefWidth="180" text="Price / Unit" />
+                   </columns>
+                 </TableView>
+                    <BorderPane> 
+                     <right>
+                         <HBox prefHeight="25.0" spacing="20.0">
+                            <children>
+                                <Button id="addProduct" onAction="#changeScreen" styleClass="button-boi" text="Add" />
+                                <Button id="modifyProduct" onAction="#changeScreen" styleClass="button-boi" text="Modify" />
+                                <Button styleClass="button-boi" onAction="#deleteProduct" text="Delete" />
+                            </children>
+                    <BorderPane.margin>
+                       <Insets bottom="5.0" left="15.0" top="5.0" />
+                    </BorderPane.margin>
+                         </HBox>
+                     </right>
+                 </BorderPane>
+               </children>
+            </VBox>
+          </children>
+         </HBox>
+       </children>
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+    
+    </GridPane>
+   </center>
+
+   <bottom>
+       <HBox id="CenterBox" alignment="center_right" spacing="10">
+          <children>
+           <Button mnemonicParsing="false" onAction="#stockTestData" styleClass="button-boi" text="Populate Test Data" BorderPane.alignment="BOTTOM_RIGHT">
+              <BorderPane.margin>
+                 <Insets bottom="10.0" right="100.0" />
+              </BorderPane.margin>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+                      <Button mnemonicParsing="false" onAction="#exit" styleClass="button-boi" text="Exit" BorderPane.alignment="BOTTOM_RIGHT">
+              <BorderPane.margin>
+                 <Insets bottom="10.0" right="100.0" />
+              </BorderPane.margin>
+            </Button>
+          </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" right="100.0" />
+         </BorderPane.margin>
+        </HBox>
+   </bottom>
+    
+</BorderPane>
